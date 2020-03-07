@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "strict": true,
+        "module": "esnext",
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "target": "es2018",
+        "jsx": "react",
+        "alwaysStrict": true,
+        "jsxFactory": "preact.createElement",
+        //"jsxFactory": "ReactOverride.createElement",
+        "types": [
+            "node"
+        ],
+        "experimentalDecorators": true,
+        //"resolveJsonModule": true,
+        /*
+        "rootDirs": ["./"],
+        "baseUrl": "./",
+        "paths": {
+            "react": ["./node_modules/@types/react/index.d.ts"],
+            "preact": ["./node_modules/@types/react/index.d.ts"]
+        }
+        //*/
+    },
+    "exclude": ["dist"]
+}

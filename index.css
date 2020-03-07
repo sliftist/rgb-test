@@ -1,0 +1,95 @@
+.indent {
+    margin-left: 16px;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;
+    line-height: 1.3;
+    color: hsl(0, 0%, 15%);
+    background: hsl(0, 0%, 100%);
+
+    margin: 0px;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+pre {
+    margin: unset;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+.lineIndent {
+    margin: 4px;
+    padding: 4px;
+    
+    border: 4px solid hsl(0, 0%, 98%);
+    border-color: transparent;
+    border-left-color: hsl(0, 0%, 98%);
+    border-radius: 1px;
+
+    /*
+    margin: 8px;
+    margin-bottom: 24px;
+    */
+}
+
+.lineIndent pre {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+h4 {
+    position: relative;
+}
+h4:before {
+    position: absolute;
+    content: " ";
+    left: 0px;
+    top: 100%;
+    width: 100%;
+    height: 1px;
+    background: hsl(0, 0%, 90%);
+}
+h4:first-child {
+    margin-top: 0px;
+}
+
+.text {
+    
+}
+.text > * {
+    margin-bottom: 12px;
+}
+.text > img {
+    zoom: 80%;
+}
+
+code {
+    background: hsl(0, 0%, 95%);
+    padding: 1px 3px;
+}
+
+.center {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+a {
+    color: hsl(209, 75%, 63%);
+    color: hsl(198, 43.3%, 42.2%);
+    text-decoration: none;
+
+}
+
+a:hover {
+    color: hsl(0, 0%, 13%);
+}
