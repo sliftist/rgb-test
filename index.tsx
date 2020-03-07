@@ -131,8 +131,8 @@ class Root extends preact.Component<{}, {}> {
             //let videoUrl = "https://www.youtube.com/watch?v=E14WmbNFXv0";
             //let videoUrl = "https://www.youtube.com/watch?v=sVdGW37sbYw";
             let videoUrl = "https://www.youtube.com/watch?v=EBt_88nxG4c";
-            let time = 70;
-            let duration = 20;
+            let time = 75;
+            let duration = 5;
 
             let url: string;
             {
@@ -173,7 +173,6 @@ class Root extends preact.Component<{}, {}> {
             imageDataBase.set(imageData.data);
 
             let f = 0;
-
             function setData(k: number) {
                 f += 0.5;
                 imageDataBase = frames[~~f % frames.length].data;
@@ -211,7 +210,7 @@ class Root extends preact.Component<{}, {}> {
             let cur60Time = Date.now();
             let cur60Count = 0;
             while(true) {
-                for(let k = 0; k <= 4; k += 0.2) {
+                for(let k = 0; k <= 4; k += 0.1) {
                     for(let i = 0; i < 1; i++) {
                         await new Promise(resolve => requestAnimationFrame(resolve));
                     }
