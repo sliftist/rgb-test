@@ -30,3 +30,4 @@ node_modules
 *.wasm
 *.log
 *.mbtree
+*.temp

@@ -1,0 +1,838 @@
+{
+    "boxes": [
+        {
+            "header": {
+                "size": 32,
+                "type": "ftyp",
+                "headerSize": 8
+            },
+            "type": "ftyp",
+            "major_brand": "isom",
+            "minor_version": 512,
+            "compatible_brands": [
+                "isom",
+                "iso2",
+                "avc1",
+                "mp41"
+            ]
+        },
+        {
+            "header": {
+                "size": 8,
+                "type": "free",
+                "headerSize": 8
+            },
+            "type": "free",
+            "bytes": "LargeBuffer(0)"
+        },
+        {
+            "header": {
+                "size": 5053879,
+                "type": "mdat",
+                "headerSize": 8
+            },
+            "type": "mdat",
+            "bytes": "LargeBuffer(5053871)"
+        },
+        {
+            "header": {
+                "size": 2059,
+                "type": "moov",
+                "headerSize": 8
+            },
+            "type": "moov",
+            "boxes": [
+                {
+                    "header": {
+                        "size": 108,
+                        "type": "mvhd",
+                        "headerSize": 8
+                    },
+                    "type": "mvhd",
+                    "version": 0,
+                    "flags": 0,
+                    "times": {
+                        "creation_time": 0,
+                        "modification_time": 0,
+                        "timescale": 1000,
+                        "duration": 9977
+                    },
+                    "rate": 1,
+                    "volume": 1,
+                    "reserved": 0,
+                    "reserved0": 0,
+                    "reserved1": 0,
+                    "matrix": [
+                        65536,
+                        0,
+                        0,
+                        0,
+                        65536,
+                        0,
+                        0,
+                        0,
+                        1073741824
+                    ],
+                    "pre_defined": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "next_track_ID": 2
+                },
+                {
+                    "header": {
+                        "size": 1845,
+                        "type": "trak",
+                        "headerSize": 8
+                    },
+                    "type": "trak",
+                    "boxes": [
+                        {
+                            "header": {
+                                "size": 92,
+                                "type": "tkhd",
+                                "headerSize": 8
+                            },
+                            "type": "tkhd",
+                            "version": 0,
+                            "flags": {
+                                "reserved": 0,
+                                "track_size_is_aspect_ratio": 0,
+                                "track_in_preview": 0,
+                                "track_in_movie": 1,
+                                "track_enabled": 1
+                            },
+                            "times": {
+                                "creation_time": 0,
+                                "modification_time": 0,
+                                "track_ID": 1,
+                                "reserved": 0,
+                                "duration": 9977
+                            },
+                            "reserved0": 0,
+                            "reserved1": 0,
+                            "layer": 0,
+                            "alternate_group": 0,
+                            "volume": 0,
+                            "reserved2": 0,
+                            "matrix": [
+                                65536,
+                                0,
+                                0,
+                                0,
+                                65536,
+                                0,
+                                0,
+                                0,
+                                1073741824
+                            ],
+                            "width": 1920,
+                            "height": 1080
+                        },
+                        {
+                            "header": {
+                                "size": 48,
+                                "type": "edts",
+                                "headerSize": 8
+                            },
+                            "type": "edts",
+                            "boxes": [
+                                {
+                                    "header": {
+                                        "size": 40,
+                                        "type": "elst",
+                                        "headerSize": 8
+                                    },
+                                    "type": "elst",
+                                    "version": 0,
+                                    "flags": 0,
+                                    "entry_count": 2,
+                                    "entries": [
+                                        {
+                                            "segment_duration": 33,
+                                            "media_time": -1,
+                                            "media_rate_integer": 1,
+                                            "media_rate_fraction": 0
+                                        },
+                                        {
+                                            "segment_duration": 9977,
+                                            "media_time": 0,
+                                            "media_rate_integer": 1,
+                                            "media_rate_fraction": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "header": {
+                                "size": 1697,
+                                "type": "mdia",
+                                "headerSize": 8
+                            },
+                            "type": "mdia",
+                            "boxes": [
+                                {
+                                    "header": {
+                                        "size": 32,
+                                        "type": "mdhd",
+                                        "headerSize": 8
+                                    },
+                                    "type": "mdhd",
+                                    "version": 0,
+                                    "flags": 0,
+                                    "creation_time": 0,
+                                    "modification_time": 0,
+                                    "timescale": 30000,
+                                    "duration": 299299,
+                                    "language": "und",
+                                    "pre_defined": 0
+                                },
+                                {
+                                    "header": {
+                                        "size": 45,
+                                        "type": "hdlr",
+                                        "headerSize": 8
+                                    },
+                                    "type": "hdlr",
+                                    "version": 0,
+                                    "flags": 0,
+                                    "pre_defined": 0,
+                                    "handler_type": "vide",
+                                    "reserved": [
+                                        0,
+                                        0,
+                                        0
+                                    ],
+                                    "name": "VideoHandler"
+                                },
+                                {
+                                    "header": {
+                                        "size": 1612,
+                                        "type": "minf",
+                                        "headerSize": 8
+                                    },
+                                    "type": "minf",
+                                    "boxes": [
+                                        {
+                                            "header": {
+                                                "size": 20,
+                                                "type": "vmhd",
+                                                "headerSize": 8
+                                            },
+                                            "type": "vmhd",
+                                            "version": 0,
+                                            "flags": 1,
+                                            "graphicsmode": 0,
+                                            "opcolor": [
+                                                0,
+                                                0,
+                                                0
+                                            ]
+                                        },
+                                        {
+                                            "header": {
+                                                "size": 36,
+                                                "type": "dinf",
+                                                "headerSize": 8
+                                            },
+                                            "type": "dinf",
+                                            "boxes": [
+                                                {
+                                                    "header": {
+                                                        "size": 28,
+                                                        "type": "dref",
+                                                        "headerSize": 8
+                                                    },
+                                                    "type": "dref",
+                                                    "version": 0,
+                                                    "flags": 0,
+                                                    "entry_count": 1,
+                                                    "boxes": [
+                                                        {
+                                                            "header": {
+                                                                "size": 12,
+                                                                "type": "url ",
+                                                                "headerSize": 8
+                                                            },
+                                                            "type": "url ",
+                                                            "version": 0,
+                                                            "flags": {
+                                                                "reserved": 0,
+                                                                "media_is_in_same_file": 1
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "header": {
+                                                "size": 1548,
+                                                "type": "stbl",
+                                                "headerSize": 8
+                                            },
+                                            "type": "stbl",
+                                            "boxes": [
+                                                {
+                                                    "header": {
+                                                        "size": 164,
+                                                        "type": "stsd",
+                                                        "headerSize": 8
+                                                    },
+                                                    "type": "stsd",
+                                                    "version": 0,
+                                                    "flags": 0,
+                                                    "entry_count": 1,
+                                                    "boxes": [
+                                                        {
+                                                            "header": {
+                                                                "size": 148,
+                                                                "type": "avc1",
+                                                                "headerSize": 8
+                                                            },
+                                                            "type": "avc1",
+                                                            "reserved": [
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0
+                                                            ],
+                                                            "data_reference_index": 1,
+                                                            "pre_defined": 0,
+                                                            "reserved1": 0,
+                                                            "pre_defined1": [
+                                                                0,
+                                                                0,
+                                                                0
+                                                            ],
+                                                            "width": 1920,
+                                                            "height": 1080,
+                                                            "horizresolution": 4718592,
+                                                            "vertresolution": 4718592,
+                                                            "reserved2": 0,
+                                                            "frame_count": 1,
+                                                            "compressorname": [
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0,
+                                                                0
+                                                            ],
+                                                            "depth": 24,
+                                                            "pre_defined2": -1,
+                                                            "boxes": [
+                                                                {
+                                                                    "header": {
+                                                                        "size": 46,
+                                                                        "type": "avcC",
+                                                                        "headerSize": 8
+                                                                    },
+                                                                    "type": "avcC",
+                                                                    "configurationVersion": 1,
+                                                                    "AVCProfileIndication": 66,
+                                                                    "profile_compatibility": 192,
+                                                                    "AVCLevelIndication": 40,
+                                                                    "reserved0": [
+                                                                        1,
+                                                                        1,
+                                                                        1,
+                                                                        1,
+                                                                        1,
+                                                                        1
+                                                                    ],
+                                                                    "lengthSizeMinusOne": 3,
+                                                                    "reserved1": [
+                                                                        1,
+                                                                        1,
+                                                                        1
+                                                                    ],
+                                                                    "numOfSequenceParameterSets": 1,
+                                                                    "spses": [
+                                                                        {
+                                                                            "length": {
+                                                                                "size": 25
+                                                                            },
+                                                                            "bytes": "LargeBuffer(23)"
+                                                                        }
+                                                                    ],
+                                                                    "numOfPictureParameterSets": 1,
+                                                                    "ppses": [
+                                                                        {
+                                                                            "length": {
+                                                                                "size": 6
+                                                                            },
+                                                                            "bytes": "LargeBuffer(4)"
+                                                                        }
+                                                                    ],
+                                                                    "remainingBytes": []
+                                                                },
+                                                                {
+                                                                    "header": {
+                                                                        "size": 16,
+                                                                        "type": "pasp",
+                                                                        "headerSize": 8
+                                                                    },
+                                                                    "type": "pasp",
+                                                                    "hSpacing": 1,
+                                                                    "vSpacing": 1
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "header": {
+                                                        "size": 24,
+                                                        "type": "stts",
+                                                        "headerSize": 8
+                                                    },
+                                                    "type": "stts",
+                                                    "version": 0,
+                                                    "flags": 0,
+                                                    "entry_count": 1,
+                                                    "samples": [
+                                                        {
+                                                            "sample_count": 299,
+                                                            "sample_delta": 1001
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "header": {
+                                                        "size": 24,
+                                                        "type": "stss",
+                                                        "headerSize": 8
+                                                    },
+                                                    "type": "stss",
+                                                    "version": 0,
+                                                    "flags": 0,
+                                                    "entry_count": 2,
+                                                    "sample_indexes": [
+                                                        1,
+                                                        251
+                                                    ]
+                                                },
+                                                {
+                                                    "header": {
+                                                        "size": 76,
+                                                        "type": "stsc",
+                                                        "headerSize": 8
+                                                    },
+                                                    "type": "stsc",
+                                                    "version": 0,
+                                                    "flags": 0,
+                                                    "entry_count": 5,
+                                                    "entries": [
+                                                        {
+                                                            "first_chunk": 1,
+                                                            "samples_per_chunk": 55,
+                                                            "sample_description_index": 1
+                                                        },
+                                                        {
+                                                            "first_chunk": 2,
+                                                            "samples_per_chunk": 65,
+                                                            "sample_description_index": 1
+                                                        },
+                                                        {
+                                                            "first_chunk": 3,
+                                                            "samples_per_chunk": 64,
+                                                            "sample_description_index": 1
+                                                        },
+                                                        {
+                                                            "first_chunk": 4,
+                                                            "samples_per_chunk": 66,
+                                                            "sample_description_index": 1
+                                                        },
+                                                        {
+                                                            "first_chunk": 5,
+                                                            "samples_per_chunk": 49,
+                                                            "sample_description_index": 1
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "header": {
+                                                        "size": 1216,
+                                                        "type": "stsz",
+                                                        "headerSize": 8
+                                                    },
+                                                    "type": "stsz",
+                                                    "version": 0,
+                                                    "flags": 0,
+                                                    "sample_size": 0,
+                                                    "sample_count": 299,
+                                                    "sample_sizes": [
+                                                        168431,
+                                                        12909,
+                                                        12080,
+                                                        15397,
+                                                        14948,
+                                                        18072,
+                                                        11034,
+                                                        18102,
+                                                        12507,
+                                                        13586,
+                                                        12193,
+                                                        15290,
+                                                        15371,
+                                                        12637,
+                                                        14986,
+                                                        11917,
+                                                        14555,
+                                                        12125,
+                                                        14612,
+                                                        14345,
+                                                        13386,
+                                                        11411,
+                                                        12490,
+                                                        61950,
+                                                        17268,
+                                                        15357,
+                                                        14666,
+                                                        17982,
+                                                        15704,
+                                                        17772,
+                                                        13125,
+                                                        16080,
+                                                        13364,
+                                                        16429,
+                                                        17716,
+                                                        19262,
+                                                        17618,
+                                                        15665,
+                                                        12685,
+                                                        19848,
+                                                        13998,
+                                                        14693,
+                                                        18731,
+                                                        15839,
+                                                        16257,
+                                                        13348,
+                                                        16172,
+                                                        12525,
+                                                        16385,
+                                                        16730,
+                                                        18415,
+                                                        15902,
+                                                        14728,
+                                                        15240,
+                                                        16578,
+                                                        19931,
+                                                        14299,
+                                                        19261,
+                                                        14516,
+                                                        17584,
+                                                        13149,
+                                                        15919,
+                                                        13140,
+                                                        16285,
+                                                        17853,
+                                                        18918,
+                                                        16715,
+                                                        15215,
+                                                        13733,
+                                                        16562,
+                                                        13774,
+                                                        18770,
+                                                        16400,
+                                                        15647,
+                                                        17624,
+                                                        13470,
+                                                        16538,
+                                                        13272,
+                                                        16390,
+                                                        18192,
+                                                        18383,
+                                                        16962,
+                                                        15493,
+                                                        14874,
+                                                        14840,
+                                                        14847,
+                                                        15845,
+                                                        22237,
+                                                        12962,
+                                                        16919,
+                                                        13576,
+                                                        15869,
+                                                        12272,
+                                                        15949,
+                                                        17402,
+                                                        19340,
+                                                        15739,
+                                                        15580,
+                                                        13514,
+                                                        16603,
+                                                        13176,
+                                                        16500,
+                                                        17592,
+                                                        18541,
+                                                        16588,
+                                                        12526,
+                                                        16090,
+                                                        13128,
+                                                        15767,
+                                                        16228,
+                                                        20405,
+                                                        13405,
+                                                        17035,
+                                                        12921,
+                                                        16726,
+                                                        13867,
+                                                        16818,
+                                                        18362,
+                                                        15903,
+                                                        20059,
+                                                        14047,
+                                                        15466,
+                                                        13472,
+                                                        15905,
+                                                        19144,
+                                                        19532,
+                                                        13496,
+                                                        17025,
+                                                        13309,
+                                                        17227,
+                                                        13313,
+                                                        16335,
+                                                        18482,
+                                                        14942,
+                                                        17912,
+                                                        16370,
+                                                        16560,
+                                                        12447,
+                                                        16664,
+                                                        17255,
+                                                        19974,
+                                                        16735,
+                                                        15854,
+                                                        16504,
+                                                        15508,
+                                                        15853,
+                                                        15968,
+                                                        19697,
+                                                        15393,
+                                                        18665,
+                                                        14695,
+                                                        19322,
+                                                        13747,
+                                                        16625,
+                                                        18078,
+                                                        19124,
+                                                        14219,
+                                                        16820,
+                                                        14384,
+                                                        15886,
+                                                        13056,
+                                                        16269,
+                                                        17204,
+                                                        14654,
+                                                        16028,
+                                                        12767,
+                                                        15446,
+                                                        14259,
+                                                        15426,
+                                                        16473,
+                                                        17238,
+                                                        13398,
+                                                        16319,
+                                                        11906,
+                                                        15270,
+                                                        12306,
+                                                        15315,
+                                                        15591,
+                                                        12633,
+                                                        14561,
+                                                        12016,
+                                                        13917,
+                                                        10015,
+                                                        56877,
+                                                        17629,
+                                                        16239,
+                                                        13392,
+                                                        16180,
+                                                        12960,
+                                                        16139,
+                                                        13045,
+                                                        16256,
+                                                        17481,
+                                                        14159,
+                                                        17845,
+                                                        12542,
+                                                        15823,
+                                                        12835,
+                                                        15617,
+                                                        21376,
+                                                        17582,
+                                                        13083,
+                                                        16663,
+                                                        13693,
+                                                        15167,
+                                                        16234,
+                                                        14492,
+                                                        18070,
+                                                        15937,
+                                                        16304,
+                                                        13382,
+                                                        16007,
+                                                        12629,
+                                                        15199,
+                                                        21735,
+                                                        23275,
+                                                        15633,
+                                                        15364,
+                                                        14871,
+                                                        14628,
+                                                        15537,
+                                                        14578,
+                                                        18598,
+                                                        14989,
+                                                        17338,
+                                                        13328,
+                                                        16775,
+                                                        12280,
+                                                        16566,
+                                                        17038,
+                                                        20108,
+                                                        19007,
+                                                        13914,
+                                                        13132,
+                                                        17082,
+                                                        12881,
+                                                        15546,
+                                                        18606,
+                                                        14235,
+                                                        17716,
+                                                        12689,
+                                                        16326,
+                                                        12543,
+                                                        16259,
+                                                        17051,
+                                                        19586,
+                                                        13241,
+                                                        19755,
+                                                        14134,
+                                                        14374,
+                                                        208370,
+                                                        12121,
+                                                        16104,
+                                                        14406,
+                                                        16525,
+                                                        12751,
+                                                        15682,
+                                                        12305,
+                                                        15771,
+                                                        16840,
+                                                        16700,
+                                                        16020,
+                                                        14614,
+                                                        17152,
+                                                        13746,
+                                                        14123,
+                                                        13850,
+                                                        17551,
+                                                        13382,
+                                                        16458,
+                                                        12873,
+                                                        16235,
+                                                        11335,
+                                                        15092,
+                                                        16051,
+                                                        17857,
+                                                        12750,
+                                                        15514,
+                                                        11090,
+                                                        18247,
+                                                        12789,
+                                                        12942,
+                                                        17041,
+                                                        12131,
+                                                        15357,
+                                                        11418,
+                                                        14665,
+                                                        11524,
+                                                        14121,
+                                                        15662,
+                                                        14976,
+                                                        14731,
+                                                        13189,
+                                                        12632,
+                                                        11556,
+                                                        15009,
+                                                        11775,
+                                                        11982,
+                                                        8864
+                                                    ]
+                                                },
+                                                {
+                                                    "header": {
+                                                        "size": 36,
+                                                        "type": "stco",
+                                                        "headerSize": 8
+                                                    },
+                                                    "type": "stco",
+                                                    "version": 0,
+                                                    "flags": 0,
+                                                    "entry_count": 5,
+                                                    "chunk_offsets": [
+                                                        48,
+                                                        1030464,
+                                                        2074464,
+                                                        3115362,
+                                                        4160040
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "header": {
+                        "size": 98,
+                        "type": "udta",
+                        "headerSize": 8
+                    },
+                    "type": "udta",
+                    "bytes": "LargeBuffer(90)"
+                }
+            ]
+        }
+    ]
+}

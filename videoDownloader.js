@@ -118,16 +118,15 @@ https.createServer(options, async function (req, res) {
     let duration = parseFloat(url.searchParams.get("t")) || 0;
 
     if(startTime < 0) startTime = 0;
-    if(duration < 0 || duration > 25) duration = 25;
 
     try {
         let videoId = Buffer.from(url.pathname.slice(1).replace(/-/g, "+").replace(/\//g, "_"), "base64").toString("base64").replace(/\+/g, "-").replace(/\//g, "_");
 
         let resParam = "";
         if(url.searchParams.get("highres") === null) {
-            resParam = `-f "bestvideo[height<=480]"`;
+            resParam = `-f "bestvideo[height<=480][ext=mp4]"`;
         } else {
-            resParam = `-f best`;
+            resParam = `-f bestvideo[ext=mp4]`;
         }
 
         let downloadCommand = `python "./youtube-dl/youtube_dl/__main__.py" ${resParam} https://www.youtube.com/watch?v=${videoId} -g`;

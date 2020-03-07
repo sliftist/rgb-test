@@ -41,6 +41,7 @@ from .downloader import (
     FileDownloader,
 )
 from .extractor import gen_extractors, list_extractors
+from .extractor.adobepass import MSO_INFO
 from .YoutubeDL import YoutubeDL
 
 

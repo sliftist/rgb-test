@@ -33,6 +33,23 @@ function getFrames(video: Buffer): ImageData[] {
             data: bufferCopy,
         });
     };
+
+    let nalCount = 0;
+    function addSample(buffer: Buffer) {
+        let pos = 0;
+        while(pos < buffer.length) {
+            let size = buffer.readUInt32BE(pos);
+            pos += 4;
+
+            let nal = buffer.slice(pos, pos + size);
+            pos += size;
+
+            //console.log(ParseNalInfo(nal), frames.length, nalCount++, buffer.byteOffset + pos - size - 4);
+
+            player.decode(nal);
+        }
+    }
+
     function getBox(boxes: any, typePath: string) {
         let typeArray = typePath.split(".");
         for(let i = 0; i < typeArray.length; i++) {
@@ -53,21 +70,41 @@ function getFrames(video: Buffer): ImageData[] {
         player.decode(avcInfo.ppses[0].bytes.getBuffer(0).buffer);
     }
 
-    let mdats: Buffer[] = result.boxes.filter((x: any) => x.type === "mdat").map((x: any) => x.bytes.getBuffer(0).buffer);
-    for(let mdat of mdats) {
-        let nals: Buffer[] = [];
-        let offset = 0;
-        while(offset < mdat.length) {
-            let size = mdat.readUInt32BE(offset);
-            offset += 4;
-            let nal = mdat.slice(offset, offset + size);
-            offset += size;
-            nals.push(nal);
+    console.log(getBox(result, "moov.trak.mdia.minf.stbl.stsc"));
 
-            //let nalInfo = ParseNalInfo(nal);
-            player.decode(nal);
+    let samplesToChunkList = getBox(result, "moov.trak.mdia.minf.stbl.stsc").entries;
+    let chunkCountLookup: { [chunk: number]: number } = Object.create(null);
+    let chunkIndex = 0;
+    for(let i = 0; i < samplesToChunkList.length; i++) {
+        let chunkCount = i < samplesToChunkList.length - 1 ? (samplesToChunkList[i + 1].first_chunk - samplesToChunkList[i].first_chunk) : 1;
+        for(let k = 0; k < chunkCount; k++) {
+            chunkCountLookup[chunkIndex++] = samplesToChunkList[i].samples_per_chunk;
         }
     }
+
+    let chunk_offsets = getBox(result, "moov.trak.mdia.minf.stbl.stco").chunk_offsets;
+    let sample_sizes = getBox(result, "moov.trak.mdia.minf.stbl.stsz").sample_sizes;
+
+    let mdats: Buffer[] = result.boxes.filter((x: any) => x.type === "mdat").map((x: any) => x.bytes.getBuffer(0).buffer);
+    let mdat = mdats[0];
+
+    (async () => {
+        // Assumes the chunks are in display order, and the frames within the chunks are in display order
+        for(let i = 0; i < chunk_offsets.length; i++) {
+            let chunkOffset = chunk_offsets[i];
+            let sampleCount = chunkCountLookup[i] || chunkCountLookup[chunkIndex - 1];
+
+            let offset = chunkOffset - mdat.byteOffset;
+            for(let k = 0; k < sampleCount; k++) {
+                // We need sample sizes, as chunk sizes are not directly stored.
+                let sampleSize = sample_sizes[frames.length];
+                addSample(mdat.slice(offset, offset + sampleSize));
+                offset += sampleSize;
+
+                await new Promise((resolve) => requestAnimationFrame(resolve));
+            }
+        }
+    })();
 
     return frames;
 }
@@ -76,7 +113,9 @@ function getFrames(video: Buffer): ImageData[] {
 class Root extends preact.Component<{}, {}> {
     @observable.shallow state = {
         imageUrl: undefined as undefined|string,
-        frameRate: 0
+        frameRate: 0,
+        width: 0,
+        height: 0
     };
     constructor() {
         super(...arguments);
@@ -89,9 +128,11 @@ class Root extends preact.Component<{}, {}> {
             });
 
 
-            let videoUrl = "https://www.youtube.com/watch?v=sVdGW37sbYw";
-            let time = 100;
-            let duration = 10;
+            //let videoUrl = "https://www.youtube.com/watch?v=E14WmbNFXv0";
+            //let videoUrl = "https://www.youtube.com/watch?v=sVdGW37sbYw";
+            let videoUrl = "https://www.youtube.com/watch?v=EBt_88nxG4c";
+            let time = 70;
+            let duration = 20;
 
             let url: string;
             {
@@ -103,7 +144,7 @@ class Root extends preact.Component<{}, {}> {
                         console.error(`Invalid video url ${videoUrl}`);
                         return;
                     }
-                    url = `http://localhost:8070/${videoId}?s=${time}&t=${duration}`;
+                    url = `http://localhost:8070/${videoId}?s=${time}&t=${duration}&highres`;
                 }
             }
             let video = await getRaw(url);
@@ -114,8 +155,13 @@ class Root extends preact.Component<{}, {}> {
 
             
             let canvas = document.createElement("canvas");
+            canvas.style.maxWidth = "100vw";
+            canvas.style.maxHeight = "100vh";
             canvas.width = frames[0].width;
             canvas.height = frames[0].height;
+
+            this.state.width = canvas.width;
+            this.state.height = canvas.height;
 
             let contextBase = canvas.getContext("2d");
             if(!contextBase) throw new Error(`Internal error`);
@@ -129,14 +175,14 @@ class Root extends preact.Component<{}, {}> {
             let f = 0;
 
             function setData(k: number) {
-                f = (f + 1) % frames.length;
-                imageDataBase = frames[f].data;
+                f += 0.5;
+                imageDataBase = frames[~~f % frames.length].data;
 
                 for(let i = 0; i < imageData.data.length; i += 4) {
                     let r = imageDataBase[i];
                     let g = imageDataBase[i + 1];
                     let b = imageDataBase[i + 2];
-                    
+
                     let v = 0;
                     if(Math.abs(k - 0) <= 1) {
                         v += (1 - Math.abs(k - 0)) * r;
@@ -181,9 +227,10 @@ class Root extends preact.Component<{}, {}> {
         })();
     }
     render() {
+        let { frameRate, width, height } = this.state;
         return (
             <preact.Fragment>
-                <h1>{this.state.frameRate}</h1>
+                <h1>{frameRate.toFixed(1)} ({width}x{height})</h1>
             </preact.Fragment>
         );
     }
