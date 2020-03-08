@@ -115,24 +115,28 @@ class Root extends preact.Component<{}, {}> {
         imageUrl: undefined as undefined|string,
         frameRate: 0,
         width: 0,
-        height: 0
+        height: 0,
+        curFrame: 0,
     };
     constructor() {
         super(...arguments);
         (async () => {
+            /*
             let image = await new Promise<HTMLImageElement>(resolve => {
                 let imageSizer = new Image();
                 imageSizer.onload = () => resolve(imageSizer);
                 imageSizer.src = "/assets/Axis_axis_(Nagarhole,_2010).jpg";
                 imageSizer.src = "/assets/nyc.jpg";
             });
+            */
 
 
             //let videoUrl = "https://www.youtube.com/watch?v=E14WmbNFXv0";
             //let videoUrl = "https://www.youtube.com/watch?v=sVdGW37sbYw";
-            let videoUrl = "https://www.youtube.com/watch?v=EBt_88nxG4c";
-            let time = 75;
-            let duration = 5;
+            //let videoUrl = "https://www.youtube.com/watch?v=EBt_88nxG4c";
+            let videoUrl = "https://www.youtube.com/watch?v=ormQQG2UhtQ";
+            let time = 12;
+            let duration = 10;
 
             let url: string;
             {
@@ -172,10 +176,12 @@ class Root extends preact.Component<{}, {}> {
             let imageDataBase = new Uint8ClampedArray(imageData.data.length);
             imageDataBase.set(imageData.data);
 
+            let self = this;
             let f = 0;
             function setData(k: number) {
                 f += 0.5;
-                imageDataBase = frames[~~f % frames.length].data;
+                self.state.curFrame = ~~f % frames.length;
+                imageDataBase = frames[self.state.curFrame].data;
 
                 for(let i = 0; i < imageData.data.length; i += 4) {
                     let r = imageDataBase[i];
@@ -200,6 +206,15 @@ class Root extends preact.Component<{}, {}> {
                     imageData.data[i + 1] = g;
                     imageData.data[i + 2] = b;
                     imageData.data[i + 3] = 255;
+                }
+                for(let y = 0; y < 10; y++) {
+                    for(let x = 0; x < canvas.width; x++) {
+                        let off = x * 4 + y * canvas.width * 4;
+                        imageData.data[off + 0] = 255 * (1 - Math.abs(k - 0));
+                        imageData.data[off + 1] = 255 * (1 - Math.abs(k - 1));
+                        imageData.data[off + 2] = 255 * (1 - Math.abs(k - 2));
+                        imageData.data[off] = 255;
+                    }
                 }
                 context.putImageData(imageData, 0, 0);
             }
@@ -229,7 +244,7 @@ class Root extends preact.Component<{}, {}> {
         let { frameRate, width, height } = this.state;
         return (
             <preact.Fragment>
-                <h1>{frameRate.toFixed(1)} ({width}x{height})</h1>
+                <h1>{frameRate.toFixed(1)} ({width}x{height}) {this.state.curFrame}</h1>
             </preact.Fragment>
         );
     }

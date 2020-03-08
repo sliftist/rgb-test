@@ -136,7 +136,7 @@ https.createServer(options, async function (req, res) {
         let videoUrl = await child_process_promise.exec(downloadCommand);
 
         await getNextNumber(async num => {
-            let fileName = `temp${num}.mp4`;
+            let fileName = `./temp${num}.mp4`;
 
             // (muxer does not support non seekable output, so we need to use a file)
             let ffmpegCommand = `ffmpeg -hide_banner -ss ${formatTime(startTime)} -i "${videoUrl.stdout.split(/(\r\n|\n|\r)/)[0]}" -bt 10M -vcodec libx264 -pass 1 -coder 0 -bf 0 -flags -loop -wpredp 0 -t ${formatTime(duration)} ${fileName} -y`;
